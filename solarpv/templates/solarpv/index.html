@@ -1,17 +1,18 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="{% static 'solarpv/styles.css' %}">
+    <script src="{% static 'solarpv/scripts.js' %}"></script>
     <title>solarPV - Home</title>
   </head>
   <body onload="slideShow()">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <a class="navbar-brand" href="#"><img src="img/logo.png" height="75"></a>
+        <a class="navbar-brand" href="#"><img src="{% static 'solarpv/logo.png' %}" height="75"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,8 +23,8 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact Us</a>
-              <a href="#"><img src="img/twitter.png" height="30"></a>
-              <a href="#"><img src="img/facebook.png" height="30"></a>
+              <a href="#"><img src="{% static 'solarpv/twitter.png' %}" height="30"></a>
+              <a href="#"><img src="{% static 'solarpv/facebook.png' %}" height="30"></a>
             </li>
           </ul>
         </div>
@@ -55,7 +56,7 @@
       <div class="row">
         <div class="col-md-3">
           <div class="d-flex justify-content-center">
-            <h6><a href="register.html" class="text-dark">Register</a></h6>
+            <h6><a href="{% url 'register' %}" class="text-dark">Register</a></h6>
               &nbsp;&nbsp;|&nbsp;&nbsp;
             <h6><a href="#" class="text-dark">Login</a></h6>
           </div>
@@ -83,7 +84,7 @@
           <h6>Featured Video</h6>
           <div class="embed-responsive embed-responsive-16by9">
             <video controls>
-              <source src="vid/lab.mp4" type="video/mp4">
+              <source src="{% static 'solarpv/lab.mp4' %}" type="video/mp4">
             </video>
           </div>
         </div>
