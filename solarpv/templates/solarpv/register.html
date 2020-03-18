@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js"></script>
+    <title>solarPV - Registration</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="index.html"><img src="img/logo.png" height="75"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+              <a href="#"><img src="img/twitter.png" height="30"></a>
+              <a href="#"><img src="img/facebook.png" height="30"></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Racks & Trackers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">PV Module</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">PV Systems</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Data Analytics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cybersecurity</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputUserID">User ID</label>
+            <input type="text" class="form-control" id="inputUserID" placeholder="User ID" maxlength="8" required>
+            <small id="userIDHelpBlock" class="form-text text-muted">
+              Required, must be at most 8 characters long.
+            </small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" maxlength="8" required>
+            <small id="passwordHelpBlock" class="form-text text-muted">
+              Required, must be at most 8 characters long comprising at least a digit, a lowercase letter, and an uppercase letter.
+            </small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-1">
+            <label for="inputPrefix">Prefix</label>
+            <select id="inputPrefix" class="form-control">
+              <option selected></option>
+              <option>Dr.</option>
+              <option>Mr.</option>
+              <option>Mrs.</option>
+              <option>Ms.</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputFirstName">First Name</label>
+            <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputMiddleName">Middle Name</label>
+            <input type="text" class="form-control" id="inputMiddleName" placeholder="Middle Name">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputLastName">Last Name</label>
+            <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputJobTitle">Job Title</label>
+            <input type="text" class="form-control" id="inputJobTitle" placeholder="Job Title">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputOfficePhone">Office Phone</label>
+            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" id="inputOfficePhone" placeholder="XXX-XXX-XXXX">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputMiddleName">Cell Phone</label>
+            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" id="inputMiddleName" placeholder="XXX-XXX-XXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check if member of staff
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="validatePassword();">Register</button>
+      </form>
+      <div class="row mt-2">
+        <div class="col">
+          <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+            <a class="navbar-brand Comfortaa" href="index.html">solarPV</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Site Map</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Terms & Conditions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About Us</a>
+                </li>
+              </ul>
+            </div>
+            <small>
+              7001 E. Williams Field Rd., Mesa, AZ 85212<br>
+              &#9742;(480)727-1585 &#9993;<a href="mailto:contact_us@solarPV.com" class="text-dark">contact_us@solarPV.com</a><br>
+              &copy;2019 All Rights Reserved
+            </small>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
