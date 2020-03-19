@@ -5,3 +5,6 @@ def index(request):
 
 def register(request):
     return render(request, 'solarpv/register.html')
+
+def dashboard(request):
+    return render(request, 'solarpv/dashboard.html')
