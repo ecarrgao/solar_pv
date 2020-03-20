@@ -15,7 +15,7 @@ function slideShow() {
 }
 
 function validatePassword() {
-  var password = document.getElementById('inputPassword');
+  var password = document.getElementById('password');
   var regex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/;
   if (regex.test(password.value)) {
     return true;

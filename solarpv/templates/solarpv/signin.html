@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'solarpv/styles.css' %}">
     <script src="{% static 'solarpv/scripts.js' %}"></script>
-    <title>solarPV - Dashboard</title>
+    <title>solarPV - Sign In</title>
   </head>
   <body>
     <div class="container">
@@ -53,37 +53,13 @@
           </ul>
         </div>
       </nav>
-      <form>
-        <div class="form-group row">
-          <label for="client" class="col-md-2 col-form-label">Client</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="client">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="location" class="col-md-2 col-form-label">Location</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="location">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="product" class="col-md-2 col-form-label">Product</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="product">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="test_standard" class="col-md-2 col-form-label">Test Standard</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="test_standard">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="certificate" class="col-md-2 col-form-label">Certificate</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="certificate">
-          </div>
-        </div>
+      <form class="form-signin mb-4 text-center">
+        <h4>Please Sign In</h4>
+        <label for="email" class="sr-only">Email address</label>
+          <input type="email" id="email" class="form-control mb-2" placeholder="Email address" required autofocus>
+        <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" class="form-control mb-2" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
       <div class="row">
         <div class="col">

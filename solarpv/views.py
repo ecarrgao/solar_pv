@@ -8,3 +8,6 @@ def register(request):
 
 def dashboard(request):
     return render(request, 'solarpv/dashboard.html')
+
+def signin(request):
+    return render(request, 'solarpv/signin.html')
