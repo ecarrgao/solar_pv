@@ -9,7 +9,7 @@ PREFIX = [
 ]
 
 class User_Manager(BaseUserManager):
-    def create_user(self, email, username, prefix, firstname, middlename, lastname, job_title, officephone, cellphone,  password=None):
+    def create_user(self, email, username, prefix, firstname, middlename, lastname, job_title, officephone, cellphone, password=None):
         if not email:
             raise ValueError("Users must have an email address")
         if not username:
@@ -61,12 +61,12 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     prefix = models.CharField(max_length=4, choices=PREFIX, blank=True)
-    firstname = models.CharField(max_length=45, blank=True)
-    middlename = models.CharField(max_length=45, blank=True)
-    lastname = models.CharField(max_length=45, blank=True)
+    firstname = models.CharField(verbose_name='First Name', max_length=45, blank=True)
+    middlename = models.CharField(verbose_name='Middle Name', max_length=45, blank=True)
+    lastname = models.CharField(verbose_name='Last Name', max_length=45, blank=True)
     job_title = models.CharField(max_length=45, blank=True)
-    officephone = models.CharField(max_length=12, blank=True)
-    cellphone = models.CharField(max_length=12, blank=True)
+    officephone = models.CharField(verbose_name='Office phone', max_length=12, blank=True)
+    cellphone = models.CharField(verbose_name='Cell phone', max_length=12, blank=True)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'officephone', 'cellphone']
