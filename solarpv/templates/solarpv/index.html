@@ -58,7 +58,11 @@
           <div class="d-flex justify-content-center">
             <h6><a href="{% url 'register' %}" class="text-dark">Register</a></h6>
               &nbsp;&nbsp;|&nbsp;&nbsp;
-            <h6><a href="#" class="text-dark">Login</a></h6>
+              {% if request.user.is_authenticated %}
+                <h6><a href="{% url 'logout' %}" class="tes">Logout, {{request.user.username}}</a></h6>
+                {% else %}
+                  <h6><a href="{% url 'login' %}" class="text-dark">Login</a></h6>
+              {% endif %}
           </div>
           <h6><a href="#">PV Model</a></h6>
           <ul>

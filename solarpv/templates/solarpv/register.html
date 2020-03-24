@@ -56,7 +56,7 @@
       <form method="post">
         {% csrf_token %}
         {% for field in registration_form %}
-          <div class="form-group mt-2">
+          <div class="form-group">
             {{field.label_tag}}
             {{field}}
 
@@ -64,9 +64,7 @@
               <small id="passwordHelpBlock" class="form-text text-muted">{{field.help_text}}</small>
             {% endif %}
 
-            {% for error in field.errors %}
-              <p style="color: red">{{error}}</p>
-            {% endfor %}
+
           </div>
         {% endfor %}
         <button type="submit" class="btn btn-primary">Register</button>

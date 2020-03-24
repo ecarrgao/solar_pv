@@ -5,7 +5,7 @@ PREFIX = [
     {"Mr.", "Mr"},
     {"Mrs.", "Mrs"},
     {"Ms.", "Ms"},
-    {"Dr.", "Dr"}
+    {"Dr.", "Dr"},
 ]
 
 class User_Manager(BaseUserManager):

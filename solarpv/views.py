@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from solarpv.forms import RegistrationForm
+from django.contrib.auth import login, authenticate, logout
+from solarpv.forms import RegistrationForm, LoginForm
 
 
 def index(request):
@@ -27,5 +27,26 @@ def register(request):
 def dashboard(request):
     return render(request, 'solarpv/dashboard.html')
 
-def signin(request):
-    return render(request, 'solarpv/signin.html')
+def logout_view(request):
+    logout(request)
+    return redirect('index')
+
+def login_view(request):
+    context = {}
+    user = request.user
+    if user.is_authenticated:
+        return redirect('index')
+    if request.POST:
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+
+            if user:
+                login(request, user)
+                return redirect('index')
+    else:
+        form = LoginForm()
+    context['login_form'] = form
+    return render(request, 'solarpv/login.html', context)
