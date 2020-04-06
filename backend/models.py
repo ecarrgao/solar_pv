@@ -12,7 +12,7 @@ class Location(models.Model):
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.address1
 
 class TestStandard(models.Model):
     standard_name = models.CharField(max_length=20)
@@ -20,7 +20,7 @@ class TestStandard(models.Model):
     published_date = models.DateField()
 
     def __str__(self):
-        return self.name
+        return self.standard_name
 
 class Product(models.Model):
     model_number = models.CharField(primary_key=True, max_length=7)
@@ -46,13 +46,13 @@ class Product(models.Model):
     junction_box_manufacturer = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.name
+        return self.product_name
 
 class TestSequence(models.Model):
     sequence_name = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.name
+        return self.sequence_name
 
 class PerformanceData(models.Model):
     model_number = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -66,7 +66,7 @@ class PerformanceData(models.Model):
     ff = models.FloatField()
 
     def __str__(self):
-        return self.name
+        return self.model_number
 
 class Service(models.Model):
     service_name = models.CharField(max_length=20)
@@ -76,7 +76,7 @@ class Service(models.Model):
     standard_id = models.ForeignKey(TestStandard, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.service_name
 
 class Certificate(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -87,4 +87,4 @@ class Certificate(models.Model):
     model_number = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.report_number
