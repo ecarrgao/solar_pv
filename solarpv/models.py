@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.validators import MaxValueValidator
+from backend.models import *
 
 PREFIX = [
     {"Mr.", "Mr"},
@@ -13,6 +14,9 @@ class Client(models.Model):
     client_id = models.AutoField(primary_key=True, default=100000, validators=[MaxValueValidator(999999)])
     client_name = models.CharField(max_length=20)
     client_type = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
 
 class User_Manager(BaseUserManager):
     def create_user(self, email, username, prefix, firstname, middlename, lastname, job_title, officephone, cellphone, client_id, password=None):

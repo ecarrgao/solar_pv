@@ -1,5 +1,5 @@
 from django.db import models
-from solarpv.models import Client, User
+from solarpv.models import *
 
 class Location(models.Model):
     address1 = models.CharField(max_length=20)
@@ -11,10 +11,16 @@ class Location(models.Model):
     fax_number = models.CharField(max_length=15)
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+
 class TestStandard(models.Model):
     standard_name = models.CharField(max_length=20)
     description = models.CharField(max_length=20)
     published_date = models.DateField()
+
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     model_number = models.CharField(primary_key=True, max_length=7)
@@ -39,8 +45,14 @@ class Product(models.Model):
     junction_box_type = models.CharField(max_length=20)
     junction_box_manufacturer = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.name
+
 class TestSequence(models.Model):
     sequence_name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
 
 class PerformanceData(models.Model):
     model_number = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -53,12 +65,18 @@ class PerformanceData(models.Model):
     pmp = models.FloatField()
     ff = models.FloatField()
 
+    def __str__(self):
+        return self.name
+
 class Service(models.Model):
     service_name = models.CharField(max_length=20)
     description = models.CharField(max_length=20)
     is_fl_required = models.BooleanField()
     fl_frequency = models.FloatField()
     standard_id = models.ForeignKey(TestStandard, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 class Certificate(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -67,3 +85,6 @@ class Certificate(models.Model):
     standard_id = models.ForeignKey(TestStandard, on_delete=models.CASCADE)
     location_id = models.ForeignKey(Location, on_delete=models.CASCADE)
     model_number = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
