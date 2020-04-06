@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.core.validators import MaxValueValidator
 
 PREFIX = [
     {"Mr.", "Mr"},
@@ -8,8 +9,13 @@ PREFIX = [
     {"Dr.", "Dr"},
 ]
 
+class Client(models.Model):
+    client_id = models.AutoField(primary_key=True, default=100000, validators=[MaxValueValidator(999999)])
+    client_name = models.CharField(max_length=20)
+    client_type = models.CharField(max_length=20)
+
 class User_Manager(BaseUserManager):
-    def create_user(self, email, username, prefix, firstname, middlename, lastname, job_title, officephone, cellphone, password=None):
+    def create_user(self, email, username, prefix, firstname, middlename, lastname, job_title, officephone, cellphone, client_id, password=None):
         if not email:
             raise ValueError("Users must have an email address")
         if not username:
@@ -25,13 +31,14 @@ class User_Manager(BaseUserManager):
             job_title=job_title,
             officephone=officephone,
             cellphone=cellphone,
+            client_id=client_id
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, password, prefix, firstname, middlename, lastname, job_title, officephone, cellphone):
+    def create_superuser(self, email, username, password, prefix, firstname, middlename, lastname, job_title, officephone, cellphone, client_id):
         user = self.create_user(
             email=self.normalize_email(email),
             username=username,
@@ -43,13 +50,13 @@ class User_Manager(BaseUserManager):
             job_title=job_title,
             officephone=officephone,
             cellphone=cellphone,
+            client_id=client_id
         )
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
         return user
-
 
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=45, unique=True)
@@ -67,9 +74,10 @@ class User(AbstractBaseUser):
     job_title = models.CharField(max_length=45, blank=True)
     officephone = models.CharField(verbose_name='Office phone', max_length=12, blank=True)
     cellphone = models.CharField(verbose_name='Cell phone', max_length=12, blank=True)
+    client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'officephone', 'cellphone']
+    REQUIRED_FIELDS = ['email', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'officephone', 'cellphone', 'client_id']
 
     objects = User_Manager()
 
