@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.validators import MaxValueValidator
-from backend.models import *
 
 PREFIX = [
     {"Mr.", "Mr"},
