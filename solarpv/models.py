@@ -11,8 +11,8 @@ PREFIX = [
 
 class Client(models.Model):
     client_id = models.AutoField(primary_key=True, default=100000, validators=[MaxValueValidator(999999)])
-    client_name = models.CharField(max_length=20)
-    client_type = models.CharField(max_length=20)
+    client_name = models.CharField(max_length=50)
+    client_type = models.CharField(max_length=50)
 
     def __str__(self):
         return self.client_name
@@ -62,7 +62,7 @@ class User_Manager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser):
-    email = models.EmailField(max_length=45, unique=True)
+    email = models.EmailField(max_length=50, unique=True)
     username = models.CharField(max_length=8, unique=True)
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
@@ -71,10 +71,10 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     prefix = models.CharField(max_length=4, choices=PREFIX, blank=True)
-    firstname = models.CharField(verbose_name='First Name', max_length=45, blank=True)
-    middlename = models.CharField(verbose_name='Middle Name', max_length=45, blank=True)
-    lastname = models.CharField(verbose_name='Last Name', max_length=45, blank=True)
-    job_title = models.CharField(max_length=45, blank=True)
+    firstname = models.CharField(verbose_name='First Name', max_length=50, blank=True)
+    middlename = models.CharField(verbose_name='Middle Name', max_length=50, blank=True)
+    lastname = models.CharField(verbose_name='Last Name', max_length=50, blank=True)
+    job_title = models.CharField(max_length=50, blank=True)
     officephone = models.CharField(verbose_name='Office phone', max_length=12, blank=True)
     cellphone = models.CharField(verbose_name='Cell phone', max_length=12, blank=True)
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
