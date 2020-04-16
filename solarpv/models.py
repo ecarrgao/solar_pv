@@ -34,7 +34,7 @@ class User_Manager(BaseUserManager):
             job_title=job_title,
             officephone=officephone,
             cellphone=cellphone,
-            client_id=client_id
+            client_id=client_id,
         )
 
         user.set_password(password)
@@ -53,7 +53,7 @@ class User_Manager(BaseUserManager):
             job_title=job_title,
             officephone=officephone,
             cellphone=cellphone,
-            client_id=client_id
+            client_id=client_id,
         )
         user.is_admin = True
         user.is_staff = True
@@ -77,7 +77,7 @@ class User(AbstractBaseUser):
     job_title = models.CharField(max_length=50, blank=True)
     officephone = models.CharField(verbose_name='Office phone', max_length=12, blank=True)
     cellphone = models.CharField(verbose_name='Cell phone', max_length=12, blank=True)
-    client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
+    client_id = models.ForeignKey(Client, default=True, on_delete=models.CASCADE)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'officephone', 'cellphone', 'client_id']
