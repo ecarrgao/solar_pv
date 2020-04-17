@@ -16,7 +16,7 @@ class Location(models.Model):
 
 class TestStandard(models.Model):
     standard_name = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
     published_date = models.DateField()
 
     def __str__(self):
@@ -70,7 +70,7 @@ class PerformanceData(models.Model):
 
 class Service(models.Model):
     service_name = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
     is_fl_required = models.BooleanField()
     fl_frequency = models.FloatField()
     standard = models.ForeignKey(TestStandard, on_delete=models.CASCADE)

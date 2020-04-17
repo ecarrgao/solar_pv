@@ -77,7 +77,7 @@ class User(AbstractBaseUser):
     job_title = models.CharField(max_length=50, blank=True)
     officephone = models.CharField(verbose_name='Office phone', max_length=12, blank=True)
     cellphone = models.CharField(verbose_name='Cell phone', max_length=12, blank=True)
-    client_id = models.ForeignKey(Client, default=True, on_delete=models.CASCADE)
+    client_id = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'officephone', 'cellphone', 'client_id']
