@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'solarpv/styles.css' %}">
-    <script src="{% static 'solarpv/scripts.js' %}"></script>
     <title>solarPV - Home</title>
   </head>
-  <body onload="slideShow()">
+  <body>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <a class="navbar-brand" href="#"><img src="{% static 'solarpv/logo.png' %}" height="75"></a>
@@ -53,63 +52,71 @@
           </ul>
         </div>
       </nav>
-      <div class="row">
-        <div class="col-md-3">
-          <div class="d-flex justify-content-center">
-            <h6><a href="{% url 'register' %}" class="text-dark">Register</a></h6>
-              &nbsp;&nbsp;|&nbsp;&nbsp;
-              {% if request.user.is_authenticated %}
-                <h6><a href="{% url 'logout' %}" class="tes">Logout, {{request.user.username}}</a></h6>
-                {% else %}
-                  <h6><a href="{% url 'login' %}" class="text-dark">Login</a></h6>
-              {% endif %}
-          </div>
-          <h6><a href="#">PV Model</a></h6>
-          <ul>
-            <li><a href="{% url 'certification' %}">Testing & Certification</a></li>
-            <li><a href="#">PV Rating</a></li>
-          </ul>
-          <h6><a href="#">PV System Performance</a></h6>
-          <ul>
-            <li><a href="#">Monitoring & Inspection</a></li>
-            <li><a href="#">Performance Analysis</a></li>
-            <li><a href="#">Compare system</a></li>
-            <li><a href="#">Certification</a></li>
-          </ul>
-          <h6><a href="#">Data Analytics</a></h6>
-          <ul>
-            <li><a href="#">Module lifetime prediction</a></li>
-            <li><a href="#">Energy Prediction</a></li>
-          </ul>
-          <h6><a href="#">Cybersecurity and Smart Grid Technologies</a></h6>
-          <h6><a href="#">Solar PV University</a></h6>
-        </div>
-        <div class="col-md-6">
-          <h6>Featured Video</h6>
-          <div class="embed-responsive embed-responsive-16by9">
-            <video controls>
-              <source src="{% static 'solarpv/lab.mp4' %}" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <h6>News & Events</h6>
-            <table>
-                <tr class="event fade">
-                    <td><a href="#">PhotoVoltaic Technical Conference to take place in Marseille, France from 26 to 28 April 2017</a></td>
-                </tr>
-                <tr class="event fade">
-                    <td><a href="#">Trump is next US president</a></td>
-                </tr>
-                <tr class="event fade">
-                    <td><a href="#">Syrian forces recapture Aleppo</a></td>
-                </tr>
-                <tr class="event fade">
-                    <td><a href="#">Senate votes on SCOTUS nominee</a></td>
-                </tr>
-            </table>
-        </div>
-      </div>
+      <h3>Certificates</h3>
+      <input type="text" class="my-3" id="input" onkeyup="search_table()" placeholder="Enter text to search...">
+      <table class="table table-striped" id="table">
+        <thead>
+          <tr>
+            <th>Certificate Number</th>
+            <th>Report Number</th>
+            <th>Issue Date</th>
+            <th>User</th>
+            <th>Standard</th>
+            <th>Location</th>
+            <th>Model</th>
+          </tr>
+        </thead>
+        <tbody id="data">
+
+        </tbody>
+      </table>
+      <script>
+        fetch("http://localhost:8000/api/certificates/").then(
+          res=> {
+            res.json().then(
+              data=>{
+                if(data.length > 0) {
+                  var temp = "";
+                  data.forEach((e)=>{
+                    temp += "<tr>";
+                    temp += "<td>"+e.certificate_number+"</td>";
+                    temp += "<td>"+e.report_number+"</td>";
+                    temp += "<td>"+e.issue_date+"</td>";
+                    temp += "<td>"+e.user+"</td>";
+                    temp += "<td>"+e.standard+"</td>";
+                    temp += "<td>"+e.location+"</td>";
+                    temp += "<td>"+e.model+"</td></tr>";
+
+                  })
+                  document.getElementById("data").innerHTML = temp;
+                }
+              })
+          })
+        function search_table(){
+
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td") ;
+          for(j=0 ; j<td.length ; j++)
+          {
+            let tdata = td[j] ;
+            if (tdata) {
+              if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                break ;
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }}
+        }
+      </script>
+
       <div class="row">
         <div class="col">
           <nav class="navbar navbar-expand-lg navbar-light bg-warning">

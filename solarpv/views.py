@@ -56,3 +56,6 @@ def login_view(request):
         form = LoginForm()
     context['login_form'] = form
     return render(request, 'solarpv/login.html', context)
+
+def certification(request):
+    return render(request, 'solarpv/certification.html')
