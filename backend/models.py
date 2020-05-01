@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from solarpv.models import *
 
 class Location(models.Model):
@@ -21,6 +22,9 @@ class TestStandard(models.Model):
 
     def __str__(self):
         return str(self.standard_name)
+
+    def get_absolute_url(self):
+        return reverse('teststandard_edit', kwargs={'pk': self.pk})
 
 class Product(models.Model):
     model_number = models.CharField(primary_key=True, max_length=7)

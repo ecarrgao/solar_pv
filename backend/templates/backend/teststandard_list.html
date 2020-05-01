@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Test Standards</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Test Standards</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Standard Name</th>
+            <th>Description</th>
+            <th>Published Date</th>
+            <th>Actions</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for teststandard in object_list %}
+          <tr>
+            <td>{{ teststandard.standard_name }}</td>
+            <td>{{ teststandard.description }}</td>
+            <td>{{ teststandard.published_date }}</td>
+            <td><a class="btn btn-success" href="{% url "teststandard_view" teststandard.id %}" role="button">View</a></td>
+            <td><a class="btn btn-warning" href="{% url "teststandard_edit" teststandard.id %}" role="button">Edit</a></td>
+            <td><a class="btn btn-danger" href="{% url "teststandard_delete" teststandard.id %}" role="button">Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a class="btn btn-primary" href="{% url "teststandard_new" %}" role="button">New</a>
+    </div>
+  </body>
+</html>

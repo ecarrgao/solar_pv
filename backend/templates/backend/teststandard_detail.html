@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Test Standard Details</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  </head>
+  <body>
+    <h1>Test Standard Details</h1>
+    <h2>Name: {{ object.standard_name }}</h2>
+    Description: {{ object.description }}<br>
+    Published Date: {{ object.published_date }}
+  </body>
+</html>
