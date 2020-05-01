@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
       <meta charset="UTF-8">
-      <title>solarPV - Test Standard Delete</title>
+      <title>solarPV - Client Delete</title>
       {% load static %}
       <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
   </head>
   <body>
     <div class="container">
-      <h1>Test Standard Delete</h1>
+      <h1>Client Delete</h1>
       <form method="post">{% csrf_token %}
         <div class="alert alert-danger" role="alert">
           Are you sure you want to delete "{{ object }}" ?

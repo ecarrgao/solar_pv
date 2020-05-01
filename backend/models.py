@@ -15,6 +15,9 @@ class Location(models.Model):
     def __str__(self):
         return str(self.client)
 
+    def get_absolute_url(self):
+        return reverse('location_edit', kwargs={'pk': self.pk})
+
 class TestStandard(models.Model):
     standard_name = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
@@ -51,6 +54,9 @@ class Product(models.Model):
 
     def __str__ (self):
         return str(self.model_number)
+
+    def get_absolute_url(self):
+        return reverse('product_edit', kwargs={'pk': self.pk})
 
 class TestSequence(models.Model):
     sequence_name = models.CharField(max_length=25)
@@ -93,3 +99,6 @@ class Certificate(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+    def get_absolute_url(self):
+        return reverse('certificate_edit', kwargs={'pk': self.pk})

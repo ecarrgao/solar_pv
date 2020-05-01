@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>solarPV - Certificates</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Certificates</h1>
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th>Certificate Number</th>
+            <th>Report Number</th>
+            <th>Issue Date</th>
+            <th>Location ID</th>
+            <th>Model ID</th>
+            <th>Standard ID</th>
+            <th>User ID</th>
+            <th>Actions</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for certificate in object_list %}
+          <tr>
+            <td>{{ certificate.certificate_number }}</td>
+            <td>{{ certificate.report_number }}</td>
+            <td>{{ certificate.issue_date }}</td>
+            <td>{{ certificate.location_id }}</td>
+            <td>{{ certificate.model_id }}</td>
+            <td>{{ certificate.standard_id }}</td>
+            <td>{{ certificate.user_id }}</td>
+            <td><a class="btn btn-sm btn-success" href="{% url "certificate_view" certificate.certificate_number %}" role="button"><i class="fa fa-search"></i> View</a></td>
+            <td><a class="btn btn-sm btn-warning" href="{% url "certificate_edit" certificate.certificate_number %}" role="button"><i class="fa fa-pencil"></i> Edit</a></td>
+            <td><a class="btn btn-sm btn-danger" href="{% url "certificate_delete" certificate.certificate_number %}" role="button"><i class="fa fa-trash"></i> Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a class="btn btn-primary" href="{% url "certificate_new" %}" role="button"><i class="fa fa-plus"></i> Add</a>
+    </div>
+  </body>
+</html>

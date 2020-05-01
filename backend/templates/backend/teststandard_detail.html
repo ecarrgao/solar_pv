@@ -2,14 +2,16 @@
 <html lang="en">
   <head>
       <meta charset="UTF-8">
-      <title>Test Standard Details</title>
+      <title>solarPV - Test Standard Details</title>
       {% load static %}
-      <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
   </head>
   <body>
-    <h1>Test Standard Details</h1>
-    <h2>Name: {{ object.standard_name }}</h2>
-    Description: {{ object.description }}<br>
-    Published Date: {{ object.published_date }}
+    <div class="container">
+      <h1>Test Standard Details</h1>
+      <strong>Name</strong>: {{ object.standard_name }}<br>
+      <strong>Description</strong>: {{ object.description }}<br>
+      <strong>Published Date</strong>: {{ object.published_date }}
+    </div>
   </body>
 </html>

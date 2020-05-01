@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
       <meta charset="UTF-8">
-      <title>solarPV - Test Standard Details</title>
+      <title>solarPV - Product Details</title>
       {% load static %}
       <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
   </head>
   <body>
     <div class="container">
-      <h1>Test Standard Edit</h1>
+      <h1>Product Edit</h1>
       <form method="post">{% csrf_token %}
         {{ form.as_p }}
         <input class="btn btn-primary" type="submit" value="Submit">

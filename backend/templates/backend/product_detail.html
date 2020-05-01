@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>solarPV - Product Details</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
+  </head>
+  <div class="container">
+    <body>
+      <h1>Product Details</h1>
+      <strong>Model Number:</strong> {{ object.model_number }}<br>
+      <strong>Product Name:</strong> {{ object.product_name }}<br>
+      <strong>Cell Technology:</strong> {{ object.cell_technology }}<br>
+      <strong>Cell Manufacturer:</strong> {{ object.cell_manufacturer }}<br>
+      <strong>Number of Cells:</strong> {{ object.number_of_cells }}<br>
+      <strong>Number of Cells in Series:</strong> {{ object.number_of_cells_in_series }}<br>
+      <strong>Number of Series Strings:</strong> {{ object.number_of_series_strings }}<br>
+      <strong>Number of Diodes:</strong> {{ object.number_of_diodes }}<br>
+      <strong>Product Length</strong> {{ object.product_length }}<br>
+      <strong>Product Width:</strong> {{ object.product_width }}<br>
+      <strong>Product Weight:</strong> {{ object.product_weight }}<br>
+      <strong>Superstrate Type:</strong> {{ object.superstrate_type }}<br>
+      <strong>Superstrate Manufacturer:</strong> {{ object.superstrate_manufacturer }}<br>
+      <strong>Substrate Type:</strong> {{ object.substrate_type }}<br>
+      <strong>Substrate Manufacturer:</strong> {{ object.substrate_manufacturer }}<br>
+      <strong>Frame Type:</strong> {{ object.frame_type }}<br>
+      <strong>Frame Adhesive:</strong> {{ object.frame_adhesive }}<br>
+      <strong>Encapsulant Type:</strong> {{ object.encapsulant_type }}<br>
+      <strong>Encapsulant Manufacturer:</strong> {{ object.encapsulant_manufacturer }}<br>
+      <strong>Junction Box Type:</strong> {{ object.junction_box_type }}<br>
+      <strong>Junction Box Manufacturer:</strong> {{ object.junction_box_manufacturer }}
+    </body>
+  </div>
+</html>

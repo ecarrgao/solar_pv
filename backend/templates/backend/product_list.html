@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>solarPV - Products</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Products</h1>
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th>Model Number</th>
+            <th>Product Name</th>
+            <th>Cell Technology</th>
+            <th>Cell Manufacturer</th>
+            <th>Number of Cells</th>
+            <th>Number of Cells in Series</th>
+            <th>Number of Series Strings</th>
+            <th>Number of Diodes</th>
+            <th>Product Length</th>
+            <th>Product Width</th>
+            <th>Product Weight</th>
+            <th>Superstrate Type</th>
+            <th>Superstrate Manufacturer</th>
+            <th>Substrate Type</th>
+            <th>Substrate Manufacturer</th>
+            <th>Frame Type</th>
+            <th>Frame Adhesive</th>
+            <th>Encapsulant Type</th>
+            <th>Encapsulant Manufacturer</th>
+            <th>Junction Box Type</th>
+            <th>Junction Box Manufacturer</th>
+            <th>Actions</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in object_list %}
+          <tr>
+            <td>{{ product.model_number }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.cell_technology }}</td>
+            <td>{{ product.cell_manufacturer }}</td>
+            <td>{{ product.number_of_cells }}</td>
+            <td>{{ product.number_of_cells_in_series }}</td>
+            <td>{{ product.number_of_series_strings }}</td>
+            <td>{{ product.number_of_diodes }}</td>
+            <td>{{ product.product_length }}</td>
+            <td>{{ product.product_width }}</td>
+            <td>{{ product.product_weight }}</td>
+            <td>{{ product.superstrate_type }}</td>
+            <td>{{ product.superstrate_manufacturer }}</td>
+            <td>{{ product.substrate_type }}</td>
+            <td>{{ product.substrate_manufacturer }}</td>
+            <td>{{ product.frame_type }}</td>
+            <td>{{ product.frame_adhesive }}</td>
+            <td>{{ product.encapsulant_type }}</td>
+            <td>{{ product.encapsulant_manufacturer }}</td>
+            <td>{{ product.junction_box_type }}</td>
+            <td>{{ product.junction_box_manufacturer }}</td>
+            <td><a class="btn btn-sm btn-success" href="{% url "product_view" product.model_number %}" role="button"><i class="fa fa-search"></i> View</a></td>
+            <td><a class="btn btn-sm btn-warning" href="{% url "product_edit" product.model_number %}" role="button"><i class="fa fa-pencil"></i> Edit</a></td>
+            <td><a class="btn btn-sm btn-danger" href="{% url "product_delete" product.model_number %}" role="button"><i class="fa fa-trash"></i> Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a class="btn btn-primary" href="{% url "product_new" %}" role="button"><i class="fa fa-plus"></i> Add</a>
+    </div>
+  </body>
+</html>

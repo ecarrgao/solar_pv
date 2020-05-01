@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>solarPV - Location Details</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
+  </head>
+  <div class="container">
+    <body>
+      <h1>Location Details</h1>
+      <strong>Address Line 1:</strong> {{ object.address1 }}<br>
+      <strong>Address Line 2:</strong> {{ object.address2 }}<br>
+      <strong>City:</strong> {{ object.city }}<br>
+      <strong>State:</strong> {{ object.state }}<br>
+      <strong>Postal Code:</strong> {{ object.postal_code }}<br>
+      <strong>Phone:</strong> {{ object.phone_number }}<br>
+      <strong>Fax:</strong> {{ object.fax_number }}<br>
+      <strong>Client ID:</strong> {{ object.client_id }}
+    </body>
+  </div>
+</html>

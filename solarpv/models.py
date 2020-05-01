@@ -13,6 +13,9 @@ class Client(models.Model):
     def __str__(self):
         return self.client_name
 
+    def get_absolute_url(self):
+        return reverse('client_edit', kwargs={'pk': self.pk})
+
 class User_Manager(BaseUserManager):
     def create_user(self, email, username, prefix, firstname, middlename, lastname, job_title, officephone, cellphone, client, password=None):
         if not email:

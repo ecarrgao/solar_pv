@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>solarPV - Locations</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Locations</h1>
+      <table class="table table-sm table-striped">
+        <thead>
+          <tr>
+            <th>Address Line 1</th>
+            <th>Address Line 2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Postal Code</th>
+            <th>Phone</th>
+            <th>Fax</th>
+            <th>Client ID</th>
+            <th>Actions</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for location in object_list %}
+          <tr>
+            <td>{{ location.address1 }}</td>
+            <td>{{ location.address2 }}</td>
+            <td>{{ location.city }}</td>
+            <td>{{ location.state }}</td>
+            <td>{{ location.postal_code }}</td>
+            <td>{{ location.phone_number }}</td>
+            <td>{{ location.fax_number }}</td>
+            <td>{{ location.client_id }}</td>
+            <td><a class="btn btn-sm btn-success" href="{% url "location_view" location.id %}" role="button"><i class="fa fa-search"></i> View</a></td>
+            <td><a class="btn btn-sm btn-warning" href="{% url "location_edit" location.id %}" role="button"><i class="fa fa-pencil"></i> Edit</a></td>
+            <td><a class="btn btn-sm btn-danger" href="{% url "location_delete" location.id %}" role="button"><i class="fa fa-trash"></i> Delete</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a class="btn btn-primary" href="{% url "location_new" %}" role="button"><i class="fa fa-plus"></i> Add</a>
+    </div>
+  </body>
+</html>

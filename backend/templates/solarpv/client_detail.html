@@ -2,17 +2,15 @@
 <html lang="en">
   <head>
       <meta charset="UTF-8">
-      <title>solarPV - Test Standard Details</title>
+      <title>solarPV - Client Details</title>
       {% load static %}
       <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
   </head>
   <body>
     <div class="container">
-      <h1>Test Standard Edit</h1>
-      <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input class="btn btn-primary" type="submit" value="Submit">
-      </form>
+      <h1>Client Details</h1>
+      <strong>Name:</strong> {{ object.client_name }}<br>
+      <strong>Type:</strong> {{ object.client_type }}
     </div>
   </body>
 </html>

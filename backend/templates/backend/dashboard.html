@@ -4,8 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no">
-    <link rel="stylesheet" href="{% static 'solarpv/styles.css' %}">
-    <script src="{% static 'solarpv/scripts.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'backend/style.css' %}">
     <title>solarPV - Dashboard</title>
   </head>
   <body>
@@ -52,38 +51,14 @@
           </ul>
         </div>
       </nav>
-      <form>
-        <div class="form-group row">
-          <label for="client" class="col-md-2 col-form-label">Client</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="client">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="location" class="col-md-2 col-form-label">Location</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="location">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="product" class="col-md-2 col-form-label">Product</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="product">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="test_standard" class="col-md-2 col-form-label">Test Standard</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="test_standard">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="certificate" class="col-md-2 col-form-label">Certificate</label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="certificate">
-          </div>
-        </div>
-      </form>
+      View/Modify
+      <ul>
+        <li><a href = "{% url "client_list" %}">Clients</a></li>
+        <li><a href = "{% url "location_list" %}">Locations</a></li>
+        <li><a href = "{% url "product_list" %}">Products</a></li>
+        <li><a href = "{% url "teststandard_list" %}">Test Standards</a></li>
+        <li> <a href = "{% url "certificate_list" %}">Certificates</a></li>
+      </ul>
       <div class="row">
         <div class="col">
           <nav class="navbar navbar-expand-lg navbar-light bg-warning">

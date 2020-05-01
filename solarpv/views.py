@@ -25,7 +25,7 @@ def register(request):
     return render(request, 'solarpv/register.html', context)
 
 def dashboard(request):
-    return render(request, 'solarpv/dashboard.html')
+    return render(request, 'backend/dashboard.html')
 
 def logout_view(request):
     logout(request)

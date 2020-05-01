@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>solarPV - Product Delete</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
+  </head>
+  <body>
+    <h1>Product Delete</h1>
+    <form method="post">{% csrf_token %}
+      <div class="alert alert-danger" role="alert">
+        Are you sure you want to delete "{{ object }}" ?
+      </div>
+      <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i> Delete</button>
+    </form>
+  </body>
+</html>

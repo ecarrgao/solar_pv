@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>solarPV - Certificate Details</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
+  </head>
+  <div class="container">
+    <body>
+      <h1>Certificate Details</h1>
+      <strong>Certificate Number:</strong> {{ object.certificate_number }}<br>
+      <strong>Report Number:</strong> {{ object.report_number }}<br>
+      <strong>Issue Date:</strong> {{ object.issue_date }}<br>
+      <strong>Location ID:</strong> {{ object.location_id }}<br>
+      <strong>Model ID:</strong> {{ object.model_id }}<br>
+      <strong>Standard ID:</strong> {{ object.standard_id }}<br>
+      <strong>User ID:</strong> {{ object.user_id }}
+    </body>
+  </div>
+</html>

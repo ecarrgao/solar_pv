@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
       <meta charset="UTF-8">
-      <title>Test Standards</title>
+      <title>solarPV - Test Standards</title>
       {% load static %}
-      <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+      <link rel="stylesheet" href="{% static 'backend/style.css' %}"/>
   </head>
   <body>
     <div class="container">
       <h1>Test Standards</h1>
-      <table class="table table-striped">
+      <table class="table table-sm table-striped">
         <thead>
           <tr>
             <th>Standard Name</th>
@@ -26,14 +26,14 @@
             <td>{{ teststandard.standard_name }}</td>
             <td>{{ teststandard.description }}</td>
             <td>{{ teststandard.published_date }}</td>
-            <td><a class="btn btn-success" href="{% url "teststandard_view" teststandard.id %}" role="button">View</a></td>
-            <td><a class="btn btn-warning" href="{% url "teststandard_edit" teststandard.id %}" role="button">Edit</a></td>
-            <td><a class="btn btn-danger" href="{% url "teststandard_delete" teststandard.id %}" role="button">Delete</a></td>
+            <td><a class="btn btn-sm btn-success" href="{% url "teststandard_view" teststandard.id %}" role="button"><i class="fa fa-search"></i> View</a></td>
+            <td><a class="btn btn-sm btn-warning" href="{% url "teststandard_edit" teststandard.id %}" role="button"><i class="fa fa-pencil"></i> Edit</a></td>
+            <td><a class="btn btn-sm btn-danger" href="{% url "teststandard_delete" teststandard.id %}" role="button"><i class="fa fa-trash"></i> Delete</a></td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
-      <a class="btn btn-primary" href="{% url "teststandard_new" %}" role="button">New</a>
+      <a class="btn btn-primary" href="{% url "teststandard_new" %}" role="button"><i class="fa fa-plus"></i> Add</a>
     </div>
   </body>
 </html>
