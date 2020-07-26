@@ -9,7 +9,7 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'password1', 'password2', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'email', 'officephone', 'cellphone')
+        fields = ('username', 'password1', 'password2', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'email', 'officephone', 'cellphone', 'client')
 
 class LoginForm(forms.ModelForm):
     password = forms.CharField(label='Password', widget=forms.PasswordInput)

@@ -3,10 +3,9 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.validators import MaxValueValidator
 from model_utils import Choices
 
-PREFIX = Choices('Mr', 'Mrs', 'Ms', 'Dr')
+PREFIX = Choices('Mr.', 'Mrs.', 'Ms.', 'Dr.', 'Prof.')
 
 class Client(models.Model):
-    client_id = models.AutoField(primary_key=True, validators=[MaxValueValidator(999999)])
     client_name = models.CharField(max_length=50)
     client_type = models.CharField(max_length=50)
 
@@ -61,7 +60,7 @@ class User_Manager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser):
-    email = models.EmailField(max_length=50, unique=True)
+    email = models.EmailField(verbose_name='email', max_length=60, unique=True)
     username = models.CharField(max_length=8, unique=True)
     date_joined = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
@@ -69,17 +68,17 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    prefix = models.CharField(max_length=4, choices=PREFIX, blank=True)
+    prefix = models.CharField(max_length=5, choices=PREFIX, blank=True)
     firstname = models.CharField(verbose_name='First Name', max_length=50, blank=True)
     middlename = models.CharField(verbose_name='Middle Name', max_length=50, blank=True)
     lastname = models.CharField(verbose_name='Last Name', max_length=50, blank=True)
     job_title = models.CharField(max_length=50, blank=True)
     officephone = models.CharField(verbose_name='Office phone', max_length=12, blank=True)
     cellphone = models.CharField(verbose_name='Cell phone', max_length=12, blank=True)
-    client = models.ForeignKey(Client, default=100000, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'officephone', 'cellphone', 'client']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'prefix', 'firstname', 'middlename', 'lastname', 'job_title', 'officephone', 'cellphone', 'client']
 
     objects = User_Manager()
 

@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'solar_pv.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'solarPV',
+        'NAME': 'solar_pv',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'szeTbMXd',
         'HOST': 'localhost',
     }
 }
