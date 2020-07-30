@@ -4,12 +4,12 @@ from solarpv.models import *
 
 class Location(models.Model):
     address1 = models.CharField(max_length=30)
-    address2 = models.CharField(max_length=30)
+    address2 = models.CharField(max_length=30, blank=True)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=2)
     postal_code = models.IntegerField()
     phone_number = models.CharField(max_length=15)
-    fax_number = models.CharField(max_length=15)
+    fax_number = models.CharField(max_length=15, blank=True)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     def __str__(self):

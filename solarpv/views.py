@@ -42,9 +42,9 @@ def login_view(request):
     if request.POST:
         form = LoginForm(request.POST)
         if form.is_valid():
-            username = request.POST['username']
+            email = request.POST['email']
             password = request.POST['password']
-            user = authenticate(username=username, password=password)
+            user = authenticate(email=email, password=password)
 
             if user.is_staff:
                 login(request, user)
